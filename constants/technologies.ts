@@ -1,0 +1,27 @@
+export type Tech = { name: string; color: string };
+
+export const technologies: Tech[] = [
+  { name: 'React', color: '#61DAFB' },
+  { name: 'Next.js', color: '#FFFFFF' },
+  { name: 'Node.js', color: '#83CD29' },
+  { name: 'Express', color: '#FFFFFF' },
+  { name: 'NestJS', color: '#E0234E' },
+  { name: 'Java', color: '#F89820' },
+  { name: 'Spring Boot', color: '#6DB33F' },
+  { name: 'Python', color: '#3776AB' },
+  { name: 'FastAPI', color: '#05998B' },
+  { name: 'MongoDB', color: '#47A248' },
+  { name: 'PostgreSQL', color: '#4169E1' },
+  { name: 'MySQL', color: '#4479A1' },
+  { name: 'Redis', color: '#FF4438' },
+  { name: 'Docker', color: '#2496ED' },
+  { name: 'Kubernetes', color: '#326CE5' },
+  { name: 'AWS', color: '#FF9900' },
+  { name: 'Azure', color: '#0078D4' },
+  { name: 'Google Cloud', color: '#4285F4' },
+  { name: 'Flutter', color: '#02569B' },
+  { name: 'React Native', color: '#61DAFB' },
+  { name: 'TypeScript', color: '#3178C6' },
+  { name: 'Tailwind CSS', color: '#06B6D4' },
+  { name: 'GraphQL', color: '#E10098' },
+];
