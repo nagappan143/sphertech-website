@@ -130,6 +130,7 @@ export type PortfolioItem = {
   category: string;
   description: string;
   image: string;
+  url?: string;
 };
 
 export const portfolioItems: PortfolioItem[] = [
@@ -142,6 +143,34 @@ export const portfolioItems: PortfolioItem[] = [
   { title: 'Orbital Health', category: 'Enterprise Software', description: 'Hospital information system.', image: 'https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=800' },
   { title: 'Pinnacle CRM', category: 'Enterprise Software', description: 'Sales & support CRM.', image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800' },
   { title: 'Aurora Learning', category: 'SaaS', description: 'EdTech LMS platform.', image: 'https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=800' },
+  {
+    title: 'Dr. Praveen R. — Dental Clinic',
+    category: 'Web Applications',
+    description: 'Personal clinic website with WhatsApp-first appointment booking.',
+    image: 'https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=800',
+    url: 'https://drpraveenragavendran.netlify.app/',
+  },
+  {
+    title: 'V26 Delights',
+    category: 'Web Applications',
+    description: 'Restaurant website with menu, reservations, and online ordering.',
+    image: 'https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=800',
+    url: 'https://v26-delights.netlify.app/',
+  },
+  {
+    title: 'SpherChess',
+    category: 'Web Applications',
+    description: 'Interactive chess learning game with guided lessons and tactics puzzles.',
+    image: 'https://images.pexels.com/photos/260024/pexels-photo-260024.jpeg?auto=compress&cs=tinysrgb&w=800',
+    url: 'https://spherkitchess.netlify.app/',
+  },
+  {
+    title: 'Codepedia',
+    category: 'Web Applications',
+    description: 'Programming dictionary explained in English and Tamil, for students and professionals.',
+    image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=800',
+    url: 'https://spherkitcodepedia.netlify.app/',
+  },
 ];
 
 export const navLinks = [

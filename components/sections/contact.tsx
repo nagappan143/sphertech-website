@@ -16,6 +16,7 @@ import {
 } from '@/components/ui/select';
 import { Reveal } from '@/components/animations';
 import { services } from '@/constants/services';
+import { WHATSAPP_NUMBER } from '@/config/whatsapp.config';
 
 const contactInfo = [
   { icon: MapPin, label: 'Office', value: 'SpherTech Tower, Tech Park, Chennai, India 560001' },
@@ -26,18 +27,50 @@ const contactInfo = [
 
 const socials = ['Twitter', 'LinkedIn', 'GitHub', 'Instagram'];
 
+interface FormState {
+  name: string;
+  email: string;
+  phone: string;
+  company: string;
+  service: string;
+  budget: string;
+  message: string;
+}
+
+const initialForm: FormState = {
+  name: '',
+  email: '',
+  phone: '',
+  company: '',
+  service: '',
+  budget: '',
+  message: '',
+};
+
 export function ContactSection() {
+  const [form, setForm] = React.useState<FormState>(initialForm);
   const [loading, setLoading] = React.useState(false);
   const [done, setDone] = React.useState(false);
+
+  const update = (key: keyof FormState) => (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => setForm((prev) => ({ ...prev, [key]: e.target.value }));
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+
+    const message = encodeURIComponent(
+      `Hello SpherTech! 👋\n\nI'd like to get in touch.\n\n📋 Details:\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nCompany: ${form.company}\nService: ${form.service}\nBudget: ${form.budget}\n\n💬 Message:\n${form.message}\n\nPlease get back to me. Thank you!`
+    );
+
     setTimeout(() => {
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
       setLoading(false);
       setDone(true);
+      setForm(initialForm);
       setTimeout(() => setDone(false), 4000);
-    }, 1600);
+    }, 800);
   };
 
   return (
@@ -100,19 +133,19 @@ export function ContactSection() {
             >
               <div className="grid gap-4 sm:grid-cols-2">
                 <Field label="Name">
-                  <Input required placeholder="Jane Doe" />
+                  <Input required placeholder="Jane Doe" value={form.name} onChange={update('name')} />
                 </Field>
                 <Field label="Email">
-                  <Input type="email" required placeholder="jane@company.com" />
+                  <Input type="email" required placeholder="jane@company.com" value={form.email} onChange={update('email')} />
                 </Field>
                 <Field label="Phone">
-                  <Input placeholder="+1 555 000 0000" />
+                  <Input placeholder="+1 555 000 0000" value={form.phone} onChange={update('phone')} />
                 </Field>
                 <Field label="Company">
-                  <Input placeholder="Company Inc." />
+                  <Input placeholder="Company Inc." value={form.company} onChange={update('company')} />
                 </Field>
                 <Field label="Service">
-                  <Select>
+                  <Select value={form.service} onValueChange={(v) => setForm((prev) => ({ ...prev, service: v }))}>
                     <SelectTrigger>
                       <SelectValue placeholder="Select a service" />
                     </SelectTrigger>
@@ -126,7 +159,7 @@ export function ContactSection() {
                   </Select>
                 </Field>
                 <Field label="Budget">
-                  <Select>
+                  <Select value={form.budget} onValueChange={(v) => setForm((prev) => ({ ...prev, budget: v }))}>
                     <SelectTrigger>
                       <SelectValue placeholder="Select budget" />
                     </SelectTrigger>
@@ -145,6 +178,8 @@ export function ContactSection() {
                     required
                     rows={4}
                     placeholder="Tell us about your project…"
+                    value={form.message}
+                    onChange={update('message')}
                   />
                 </Field>
               </div>
@@ -159,10 +194,10 @@ export function ContactSection() {
                     Sending…
                   </>
                 ) : done ? (
-                  'Message sent! We will be in touch.'
+                  'Sent to WhatsApp! We will be in touch.'
                 ) : (
                   <>
-                    Send Message
+                    Send via WhatsApp
                     <Send className="ml-2 h-4 w-4" />
                   </>
                 )}

@@ -50,12 +50,23 @@ export function ProductsPreview() {
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    href={`/products#${p.slug}`}
-                    className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary"
-                  >
-                    View Product <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
+                  {p.url ? (
+                    <a
+                      href={p.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary"
+                    >
+                      View Product <ArrowRight className="h-3.5 w-3.5" />
+                    </a>
+                  ) : (
+                    <Link
+                      href={`/products#${p.slug}`}
+                      className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary"
+                    >
+                      View Product <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  )}
                 </div>
               </motion.div>
             </Reveal>

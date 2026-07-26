@@ -9,6 +9,8 @@ import {
   Wallet,
   Package,
   HardHat,
+  Puzzle,
+  BookOpen,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -20,6 +22,7 @@ export type Product = {
   icon: LucideIcon;
   features: string[];
   accent: string;
+  url?: string;
 };
 
 export const products: Product[] = [
@@ -122,5 +125,27 @@ export const products: Product[] = [
     icon: HardHat,
     features: ['BOQ & costing', 'Subcontractor mgmt', 'Site progress'],
     accent: 'from-yellow-500 to-amber-400',
+  },
+  {
+    slug: 'spherchess',
+    name: 'SpherChess',
+    tagline: 'Learn chess, the fun way',
+    description:
+      'An interactive chess learning game that teaches openings, tactics, and strategy through guided play.',
+    icon: Puzzle,
+    features: ['Guided lessons', 'Tactics puzzles', 'Play & practice mode'],
+    accent: 'from-slate-500 to-zinc-400',
+    url: 'https://spherkitchess.netlify.app/',
+  },
+  {
+    slug: 'codepedia',
+    name: 'Codepedia',
+    tagline: 'Programming dictionary, English + Tamil',
+    description:
+      'Every programming word explained in Tamil and English with real code examples, memory tricks, and interview tips — for students and professionals alike.',
+    icon: BookOpen,
+    features: ['English + Tamil definitions', 'School to professional levels', 'Real code examples'],
+    accent: 'from-indigo-500 to-purple-400',
+    url: 'https://spherkitcodepedia.netlify.app/',
   },
 ];

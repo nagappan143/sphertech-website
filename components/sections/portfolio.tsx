@@ -56,35 +56,57 @@ export function Portfolio() {
           className="mt-10 columns-1 gap-5 sm:columns-2 lg:columns-3 [&>*]:mb-5"
         >
           <AnimatePresence mode="popLayout">
-            {filtered.map((item) => (
-              <motion.div
-                key={item.title}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                className="group relative overflow-hidden rounded-2xl border border-border/60 break-inside-avoid"
-              >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full object-cover transition duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-80" />
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <span className="text-xs font-medium uppercase tracking-wide text-primary">
-                    {item.category}
-                  </span>
-                  <h3 className="mt-1 font-heading text-lg font-bold">
-                    {item.title}
-                  </h3>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    {item.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+            {filtered.map((item) => {
+              const CardInner = (
+                <>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-80" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <span className="text-xs font-medium uppercase tracking-wide text-primary">
+                      {item.category}
+                    </span>
+                    <h3 className="mt-1 font-heading text-lg font-bold">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </div>
+                </>
+              );
+
+              const cardClassName =
+                'group relative block overflow-hidden rounded-2xl border border-border/60 break-inside-avoid';
+
+              return (
+                <motion.div
+                  key={item.title}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                  className="break-inside-avoid"
+                >
+                  {item.url ? (
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={cardClassName}
+                    >
+                      {CardInner}
+                    </a>
+                  ) : (
+                    <div className={cardClassName}>{CardInner}</div>
+                  )}
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </motion.div>
       </div>
