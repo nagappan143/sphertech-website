@@ -1,14 +1,8 @@
 import {
-  Presentation,
   HeartPulse,
-  Users,
-  Contact,
   ShoppingCart,
   GraduationCap,
   Stethoscope,
-  Wallet,
-  Package,
-  HardHat,
   Puzzle,
   BookOpen,
   type LucideIcon,
@@ -27,14 +21,15 @@ export type Product = {
 
 export const products: Product[] = [
   {
-    slug: 'slideforge',
-    name: 'SlideForge',
-    tagline: 'AI presentation studio',
+    slug: 'codepedia',
+    name: 'Codepedia',
+    tagline: 'Programming dictionary, English + Tamil',
     description:
-      'Generate, design, and collaborate on stunning presentations with AI-assisted layouts and brand kits.',
-    icon: Presentation,
-    features: ['AI slide generation', 'Real-time collaboration', 'Brand kits'],
-    accent: 'from-blue-500 to-cyan-400',
+      'Every programming word explained in Tamil and English with real code examples, memory tricks, and interview tips — for students and professionals alike.',
+    icon: BookOpen,
+    features: ['English + Tamil definitions', 'School to professional levels', 'Real code examples'],
+    accent: 'from-indigo-500 to-purple-400',
+    url: 'https://spherkitcodepedia.netlify.app/',
   },
   {
     slug: 'familyhub-ai',
@@ -45,26 +40,6 @@ export const products: Product[] = [
     icon: HeartPulse,
     features: ['Shared calendars', 'AI reminders', 'Private vault'],
     accent: 'from-rose-500 to-orange-400',
-  },
-  {
-    slug: 'spherhr',
-    name: 'SpherHR',
-    tagline: 'Modern HR platform',
-    description:
-      'Hire, onboard, manage payroll, leave, and performance with a delightful HR experience.',
-    icon: Users,
-    features: ['Payroll & leave', 'Performance reviews', 'Self-service portal'],
-    accent: 'from-violet-500 to-fuchsia-400',
-  },
-  {
-    slug: 'sphercrm',
-    name: 'SpherCRM',
-    tagline: 'Sales & support CRM',
-    description:
-      'Track leads, deals, and tickets with automation pipelines and a 360° customer view.',
-    icon: Contact,
-    features: ['Pipeline automation', 'Ticketing', 'Email & SMS'],
-    accent: 'from-emerald-500 to-teal-400',
   },
   {
     slug: 'spherpos',
@@ -97,36 +72,6 @@ export const products: Product[] = [
     accent: 'from-cyan-500 to-blue-400',
   },
   {
-    slug: 'spherfinance',
-    name: 'SpherFinance',
-    tagline: 'Personal finance manager',
-    description:
-      'Budget, track expenses, and get AI insights into your spending with bank-grade security.',
-    icon: Wallet,
-    features: ['Budget tracking', 'AI insights', 'Bank-grade security'],
-    accent: 'from-green-500 to-emerald-400',
-  },
-  {
-    slug: 'inventory-management',
-    name: 'Inventory Management',
-    tagline: 'Warehouse & stock control',
-    description:
-      'Real-time stock, multi-warehouse, barcode scanning, and low-stock alerts at scale.',
-    icon: Package,
-    features: ['Multi-warehouse', 'Barcode scanning', 'Low-stock alerts'],
-    accent: 'from-orange-500 to-red-400',
-  },
-  {
-    slug: 'construction-erp',
-    name: 'Construction ERP',
-    tagline: 'Build & project control',
-    description:
-      'Project costing, BOQ, subcontractor management, and site progress tracking for constructors.',
-    icon: HardHat,
-    features: ['BOQ & costing', 'Subcontractor mgmt', 'Site progress'],
-    accent: 'from-yellow-500 to-amber-400',
-  },
-  {
     slug: 'spherchess',
     name: 'SpherChess',
     tagline: 'Learn chess, the fun way',
@@ -136,16 +81,5 @@ export const products: Product[] = [
     features: ['Guided lessons', 'Tactics puzzles', 'Play & practice mode'],
     accent: 'from-slate-500 to-zinc-400',
     url: 'https://spherkitchess.netlify.app/',
-  },
-  {
-    slug: 'codepedia',
-    name: 'Codepedia',
-    tagline: 'Programming dictionary, English + Tamil',
-    description:
-      'Every programming word explained in Tamil and English with real code examples, memory tricks, and interview tips — for students and professionals alike.',
-    icon: BookOpen,
-    features: ['English + Tamil definitions', 'School to professional levels', 'Real code examples'],
-    accent: 'from-indigo-500 to-purple-400',
-    url: 'https://spherkitcodepedia.netlify.app/',
   },
 ];
